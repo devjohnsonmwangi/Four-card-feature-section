@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Four card feature section</title>
+</head>
+<body>
+
+  <header class="container">
+    <div class="heading">
+      <h1>Reliable, efficient delivery</h1>
+      <h2>Powered by Technology</h2>
+      <p>Our Artificial Intelligence powered tools use millions of project data points 
+      to ensure that your project is successful</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="cards">
+      <div class="card supervisor" data-details="Monitors activity to identify project roadblocks">
+        <h3>Supervisor</h3>
+        <p>Monitors activity to identify project roadblocks</p>
+        <img src="./images/icon-supervisor.svg" alt="Supervisor Icon">
+      </div>
+
+      <div class="card team-builder" data-details="Scans our talent network to create the optimal team for your project">
+        <h3>Team Builder</h3>
+        <p>Scans our talent network to create the optimal team for your project</p>
+        <img src="./images/icon-team-builder.svg" alt="Team Builder Icon">
+      </div>
+
+      <div class="card karma" data-details="Regularly evaluates our talent to ensure quality">
+        <h3>Karma</h3>
+        <p>Regularly evaluates our talent to ensure quality</p>
+        <img src="./images/icon-karma.svg" alt="Karma Icon">
+      </div>
+
+      <div class="card calculator" data-details="Uses data from past projects to provide better delivery estimates">
+        <h3>Calculator</h3>
+        <p>Uses data from past projects to provide better delivery estimates</p>
+        <img src="./images/icon-calculator.svg" alt="Calculator Icon">
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p class="attribution">
+      Challenge by <link href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Devjohnsonmwangi</a>.
+    </p>
+  </footer>
+
+  <!-- Modal -->
+  <div id="cardModal" class="modal">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <h2></h2>
+      <p class="details"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

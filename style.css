@@ -1,0 +1,283 @@
+/* style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+:root {
+    --Red: hsl(0, 78%, 62%);
+    --Cyan: hsl(180, 62%, 55%);
+    --Orange: hsl(34, 97%, 64%);
+    --Blue: hsl(212, 86%, 64%);
+    --VeryDarkBlue: hsl(234, 12%, 34%);
+    --GrayishBlue: hsl(229, 6%, 66%);
+    --VeryLightGray: hsl(0, 0%, 98%);
+    --WeightLight: 200;
+    --WeightRegular: 400;
+    --WeightBold: 600;
+}
+
+/* General styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    background-color: var(--VeryLightGray);
+    color: var(--VeryDarkBlue);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+header .heading {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0 10px; /* Add padding for mobile screens */
+}
+
+header h1 {
+    font-weight: var(--WeightLight);
+    font-size: 2.25rem; /* Adjusted for better visual appearance */
+    margin-bottom: 0.5rem;
+}
+
+header h2 {
+    font-weight: var(--WeightBold);
+    font-size: 2.25rem; /* Adjusted for better visual appearance */
+    margin-bottom: 1rem;
+}
+
+header p {
+    color: var(--GrayishBlue);
+    line-height: 1.6;
+    font-size: 1rem;
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+/* Card styles */
+main .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Adjust column widths for + shape */
+    grid-template-rows: auto auto auto; /* Ensure content fits in rows */
+    grid-template-areas:
+        ". team-builder ."
+        "supervisor karma calculator"
+        ". karma .";
+    gap: 20px;
+    padding: 0 10px;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 220px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added box-shadow transition */
+}
+
+.card:hover {
+  transform: translateY(-5px);  /* Adding Hover  state   */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+   animation: shuffle 0.5s ease-in-out; /* Add animation */
+}
+
+@keyframes shuffle {
+    0% { transform: translateY(-5px) rotate(0deg); }
+    25% { transform: translateY(-2px) rotate(2deg); }
+    50% { transform: translateY(2px) rotate(-2deg); }
+    75% { transform: translateY(-2px) rotate(2deg); }
+    100% { transform: translateY(-5px) rotate(0deg); } /* Return to final hovered state */
+}
+
+.card h3 {
+    font-weight: var(--WeightBold);
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    z-index: 1;
+}
+
+.card p {
+    color: var(--GrayishBlue);
+    line-height: 1.5;
+    font-size: 0.9rem;
+    z-index: 1;
+}
+
+.card img {
+    position: absolute;
+    right: 25px;
+    bottom: 25px;
+    width: 60px;
+    opacity: 0.8;
+    z-index: 0; /* Ensure the image is behind the text */
+}
+
+/* Card Placement using Grid Areas */
+.supervisor {
+    grid-area: supervisor;
+    border-top: 4px solid var(--Cyan);
+}
+
+.team-builder {
+    grid-area: team-builder;
+    border-top: 4px solid var(--Red);
+}
+
+.karma {
+    grid-area: karma;
+    border-top: 4px solid var(--Orange);
+}
+
+.calculator {
+    grid-area: calculator;
+    border-top: 4px solid var(--Blue);
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 20px 0;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+/* Modal Styles - Using Flexbox for Centering */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--VeryDarkBlue);
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header .heading {
+        margin-bottom: 20px;
+    }
+
+    header h1,
+    header h2 {
+        font-size: 1.75rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    main .cards {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+        grid-template-rows: auto;
+        grid-template-areas:
+            "supervisor"
+            "team-builder"
+            "karma"
+            "calculator";
+        max-width: 400px;
+        padding: 0;
+    }
+
+    .card {
+        padding: 25px;
+        min-height: 180px; /* Adjusted card minimum height for small screens */
+    }
+
+    .card img {
+        width: 50px;
+        right: 15px;
+        bottom: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+  header p {
+    font-size: 0.85rem; /* Even smaller font for very small screens */
+  }
+  /*Reduce text content*/
+  .card p {
+    font-size: 0.75rem
+  }
+}
+
+  .card h3 {
+    font-size: 1rem; /* Adjusted for better visual appearance */
+  }
+  .card {
+    padding: 20px;
+    min-height: 160px; /* Adjusted card minimum height for small screens */
+  }
+    .card p {
+        font-size: 0.85rem; /* Adjusted for better visual appearance */
+    }
+
+  .card img {
+    width: 40px;
+    right: 10px;
+    bottom: 10px;
+    }
+    .modal-content {
+        padding: 20px;
+        width: 90%;
+    }
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
